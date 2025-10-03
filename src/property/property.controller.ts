@@ -1,18 +1,16 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { PropertyService } from './property.service';
 
 @Controller('property')
 export class PropertyController {
-  @Get()
-  findAll() {
-    return 'ok';
-  }
+  constructor(private readonly propertyService: PropertyService) {}
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return id;
+  @Get()
+  getAllProperties() {
+    return this.propertyService.getProperties();
   }
   @Post()
-  create() {
-    return 'this method will create data';
+  createProperty(@Body() body: any) {
+    return this.propertyService.createProperty(body);
   }
 }
