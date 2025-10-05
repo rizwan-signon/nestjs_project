@@ -12,4 +12,8 @@ export class PropertyService {
   getPropertyByID(propertyId: string) {
     return `This will return property with id: ${propertyId}`;
   }
+  sortProperties(sort: boolean) {
+    console.log(sort);
+    return 'This will Sort properties based on query parameters';
+  }
 }
