@@ -13,4 +13,8 @@ export class PropertyController {
   createProperty(@Body() body: any) {
     return this.propertyService.createProperty(body);
   }
+  @Get(':id')
+  getPropertyByID(@Param('id') propertyId: string) {
+    return this.propertyService.getPropertyByID(propertyId);
+  }
 }
